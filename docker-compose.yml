@@ -1,0 +1,10 @@
+services:
+  aplicacion:
+    image: "node:24-alpine"
+    working_dir: "/app"
+    restart: always
+    command: tail -f /dev/null
+    volumes:
+      - "./Codigo:/app"
+    ports: 
+      - "3000:3000"
