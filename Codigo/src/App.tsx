@@ -1,563 +1,599 @@
-import './App.css'
-
-function App() {
-  return (
-    <>
-      <div className="background">
-        <div className="bg-mesh" />
-        <div className="bg-grain" />
-      </div>
-
-      <header className="header">
-        <nav className="nav container">
-          <a href="#top" className="logo">
-            B<span>.</span>Flores
-          </a>
-
-          <div className="nav-links">
-            <a href="#about">Sobre mí</a>
-            <a href="#skills">Habilidades</a>
-            <a href="#projects">Proyectos</a>
-            <a href="#experience">Experiencia</a>
-            <a href="#contact">Contacto</a>
-          </div>
-
-          <a href="#contact" className="nav-cta">
-            Hablemos
-          </a>
-        </nav>
-      </header>
-
-      <main id="top">
-
-        {/* HERO */}
-        <section className="hero section">
-          <div className="container hero-grid">
-
-            <div className="hero-content">
-              <span className="eyebrow">
-                Disponible para nuevos proyectos
-              </span>
-
-              <h1>
-                Basthian Renato
-                <br />
-                Flores Millán
-                <span className="gradient-text">.</span>
-              </h1>
-
-              <div className="hero-role">
-                Desarrollador <span>Full-Stack</span>
-              </div>
-
-              <p className="hero-description">
-                Desarrollo aplicaciones web modernas, rápidas y
-                mantenibles. Me interesa convertir ideas en productos
-                digitales funcionales, accesibles y con una buena
-                experiencia de usuario.
-              </p>
-
-              <div className="hero-actions">
-                <a href="#projects" className="button button-primary">
-                  Ver proyectos
-                </a>
-
-                <a href="#contact" className="button button-secondary">
-                  Contactarme
-                </a>
-              </div>
-
-              <div className="hero-stack">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Node.js</span>
-                <span>Docker</span>
-              </div>
-            </div>
-
-            <div className="hero-visual">
-              <div className="visual-glow" />
-              <div className="orbit orbit-one" />
-              <div className="orbit orbit-two" />
-
-              <div className="code-card">
-                <div className="code-header">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-
-                <div className="code-content">
-                  <p>
-                    <span className="code-purple">const</span>{' '}
-                    developer = {'{'}
-                  </p>
-
-                  <p className="indent">
-                    <span className="code-blue">name:</span>{' '}
-                    <span className="code-green">'Basthian'</span>,
-                  </p>
-
-                  <p className="indent">
-                    <span className="code-blue">role:</span>{' '}
-                    <span className="code-green">
-                      'Full-Stack Developer'
-                    </span>,
-                  </p>
-
-                  <p className="indent">
-                    <span className="code-blue">passion:</span>{' '}
-                    <span className="code-green">
-                      'Building'
-                    </span>,
-                  </p>
-
-                  <p className="indent">
-                    <span className="code-blue">stack:</span>{' '}
-                    <span className="code-green">
-                      'React + Node'
-                    </span>,
-                  </p>
-
-                  <p>{'}'}</p>
-                </div>
-
-                <div className="code-cursor" />
-              </div>
-
-              <div className="floating-card card-react">
-                <span>⚛</span>
-                React
-              </div>
-
-              <div className="floating-card card-docker">
-                <span>◈</span>
-                Docker
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ABOUT */}
-        <section id="about" className="section">
-          <div className="container">
-
-            <div className="section-heading">
-              <span className="eyebrow">Sobre mí</span>
-
-              <h2>
-                Código y aprendizaje en{' '}
-                <span className="gradient-text">
-                  constante evolución
-                </span>
-              </h2>
-            </div>
-
-            <div className="about-grid">
-
-              <div className="stats-grid">
-
-                <div className="stat-card">
-                  <strong>4+</strong>
-                  <span>Proyectos personales</span>
-                </div>
-
-                <div className="stat-card">
-                  <strong>∞</strong>
-                  <span>Cosas por aprender</span>
-                </div>
-
-                <div className="stat-card">
-                  <strong>24/7</strong>
-                  <span>Curiosidad técnica</span>
-                </div>
-
-                <div className="stat-card">
-                  <strong>100%</strong>
-                  <span>Compromiso</span>
-                </div>
-
-              </div>
-
-              <div className="about-content">
-                <p>
-                  Soy desarrollador de software enfocado en la creación
-                  de <strong>aplicaciones web modernas</strong> utilizando
-                  tecnologías actuales del ecosistema JavaScript y
-                  TypeScript.
-                </p>
-
-                <p>
-                  Actualmente estoy fortaleciendo mis conocimientos en
-                  desarrollo frontend y backend, trabajando con React,
-                  TypeScript, Node.js, Docker y herramientas del
-                  ecosistema web.
-                </p>
-
-                <p>
-                  Me interesa especialmente comprender cómo funcionan
-                  las aplicaciones desde sus interfaces hasta su
-                  infraestructura, buscando escribir código limpio,
-                  mantenible y fácil de entender.
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* SKILLS */}
-        <section id="skills" className="section section-alt">
-          <div className="container">
-
-            <div className="section-heading">
-              <span className="eyebrow">Habilidades</span>
-              <h2>Stack de trabajo</h2>
-            </div>
-
-            <div className="skills-grid">
-
-              <div className="skill-card">
-                <div className="skill-number">01</div>
-
-                <h3>Frontend</h3>
-
-                <p>
-                  Desarrollo de interfaces modernas, componentes
-                  reutilizables y experiencias responsive.
-                </p>
-
-                <div className="tags">
-                  <span>React</span>
-                  <span>TypeScript</span>
-                  <span>JavaScript</span>
-                  <span>HTML</span>
-                  <span>CSS</span>
-                  <span>Vite</span>
-                </div>
-              </div>
-
-              <div className="skill-card">
-                <div className="skill-number">02</div>
-
-                <h3>Backend</h3>
-
-                <p>
-                  Desarrollo de APIs, servicios y estructuras necesarias
-                  para aplicaciones web.
-                </p>
-
-                <div className="tags">
-                  <span>Node.js</span>
-                  <span>Express</span>
-                  <span>REST</span>
-                  <span>PostgreSQL</span>
-                  <span>Python</span>
-                </div>
-              </div>
-
-              <div className="skill-card">
-                <div className="skill-number">03</div>
-
-                <h3>DevOps & Tools</h3>
-
-                <p>
-                  Entornos de desarrollo, contenedores, control de
-                  versiones y herramientas para mejorar el flujo de trabajo.
-                </p>
-
-                <div className="tags">
-                  <span>Docker</span>
-                  <span>Docker Compose</span>
-                  <span>Git</span>
-                  <span>GitHub</span>
-                  <span>Linux</span>
-                  <span>CI/CD</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* PROJECTS */}
-        <section id="projects" className="section">
-          <div className="container">
-
-            <div className="section-heading project-heading">
-              <div>
-                <span className="eyebrow">Proyectos</span>
-                <h2>Trabajo seleccionado</h2>
-              </div>
-
-              <p>
-                Proyectos personales y experimentales creados para
-                practicar diferentes tecnologías y resolver problemas
-                concretos.
-              </p>
-            </div>
-
-            <div className="projects-grid">
-
-              <article className="project-card">
-                <div className="project-image project-blue">
-                  <span>01</span>
-                </div>
-
-                <div className="project-content">
-                  <span className="project-type">
-                    Full-Stack
-                  </span>
-
-                  <h3>Nimbus Analytics</h3>
-
-                  <p>
-                    Dashboard para visualizar métricas de una aplicación
-                    mediante gráficos interactivos y datos en tiempo real.
-                  </p>
-
-                  <div className="tags">
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>WebSockets</span>
-                  </div>
-
-                  <a href="#contact" className="project-link">
-                    Ver proyecto →
-                  </a>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <div className="project-image project-purple">
-                  <span>02</span>
-                </div>
-
-                <div className="project-content">
-                  <span className="project-type">
-                    E-commerce
-                  </span>
-
-                  <h3>Orbita Market</h3>
-
-                  <p>
-                    Plataforma de comercio electrónico enfocada en una
-                    experiencia de compra sencilla y responsive.
-                  </p>
-
-                  <div className="tags">
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>PostgreSQL</span>
-                  </div>
-
-                  <a href="#contact" className="project-link">
-                    Ver proyecto →
-                  </a>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <div className="project-image project-cyan">
-                  <span>03</span>
-                </div>
-
-                <div className="project-content">
-                  <span className="project-type">
-                    Web App
-                  </span>
-
-                  <h3>Deep Blue CMS</h3>
-
-                  <p>
-                    Sistema de gestión de contenidos pensado para
-                    administrar publicaciones mediante una interfaz web.
-                  </p>
-
-                  <div className="tags">
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Docker</span>
-                  </div>
-
-                  <a href="#contact" className="project-link">
-                    Ver proyecto →
-                  </a>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <div className="project-image project-pink">
-                  <span>04</span>
-                </div>
-
-                <div className="project-content">
-                  <span className="project-type">
-                    PWA
-                  </span>
-
-                  <h3>Pulse Fitness</h3>
-
-                  <p>
-                    Aplicación web progresiva para registrar
-                    entrenamientos, objetivos y progreso personal.
-                  </p>
-
-                  <div className="tags">
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>PWA</span>
-                  </div>
-
-                  <a href="#contact" className="project-link">
-                    Ver proyecto →
-                  </a>
-                </div>
-              </article>
-
-            </div>
-          </div>
-        </section>
-
-        {/* EXPERIENCE */}
-        <section id="experience" className="section section-alt">
-          <div className="container">
-
-            <div className="section-heading">
-              <span className="eyebrow">Experiencia</span>
-              <h2>Trayectoria</h2>
-            </div>
-
-            <div className="timeline">
-
-              <div className="timeline-item">
-                <span className="timeline-date">
-                  2026 — Presente
-                </span>
-
-                <div>
-                  <h3>Desarrollo independiente</h3>
-
-                  <strong>
-                    Desarrollador Full-Stack
-                  </strong>
-
-                  <p>
-                    Desarrollo de proyectos personales para fortalecer
-                    conocimientos de frontend, backend, Docker,
-                    TypeScript y arquitectura de aplicaciones web.
-                  </p>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <span className="timeline-date">
-                  2025 — 2026
-                </span>
-
-                <div>
-                  <h3>Formación y proyectos</h3>
-
-                  <strong>
-                    Desarrollo Web
-                  </strong>
-
-                  <p>
-                    Construcción de proyectos prácticos utilizando
-                    tecnologías modernas y buenas prácticas de desarrollo.
-                  </p>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <span className="timeline-date">
-                  Actualmente
-                </span>
-
-                <div>
-                  <h3>Aprendizaje continuo</h3>
-
-                  <strong>
-                    Software Development
-                  </strong>
-
-                  <p>
-                    Exploración constante de nuevas tecnologías,
-                    herramientas y metodologías para mejorar como
-                    desarrollador.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* CONTACT */}
-        <section id="contact" className="section">
-          <div className="container">
-
-            <div className="contact-card">
-
-              <div className="contact-info">
-                <span className="eyebrow">
-                  Contacto
-                </span>
-
-                <h2>
-                  Construyamos algo
-                  <span className="gradient-text">
-                    {' '}juntos.
-                  </span>
-                </h2>
-
-                <p>
-                  ¿Tienes una idea, proyecto o simplemente quieres
-                  conversar sobre desarrollo web?
-                </p>
-
-                <div className="contact-links">
-                  <a href="mailto:basthian@example.com">
-                    basthian@example.com
-                  </a>
-
-                  <a href="#top">
-                    LinkedIn
-                  </a>
-
-                  <a href="#top">
-                    GitHub
-                  </a>
-                </div>
-              </div>
-
-              <div className="contact-decoration">
-                <span>&lt;</span>
-                <strong>/</strong>
-                <span>&gt;</span>
-              </div>
-
-            </div>
-
-          </div>
-        </section>
-
-      </main>
-
-      <footer>
-        <div className="container footer-content">
-          <span>
-            © 2026 Basthian Flores
-          </span>
-
-          <span>
-            Diseñado & desarrollado con React + TypeScript
-          </span>
-        </div>
-      </footer>
-    </>
-  )
+import React, { useEffect, useRef, useState } from "react";
+import "./App.css";
+import { initInteractions } from "./scripts/index";
+
+/* =============================================================================
+   DATOS DE DEMOSTRACIÓN
+   -----------------------------------------------------------------------------
+   Todo el contenido de este bloque es FICTICIO y sirve únicamente para poder
+   visualizar el diseño. Sustituye cada campo por tu información real antes
+   de publicar el sitio. Los tipos (interfaces) describen la forma que debe
+   mantener cada dato reemplazado.
+   ============================================================================= */
+
+interface Profile {
+  name: string;
+  role: string;
+  location: string;
+  availability: string;
+  version: string; // TODO: sustituir por fecha real del último despliegue
+  email: string;
+  github: string;
+  linkedin: string;
+  cvUrl: string;
 }
 
-export default App
+// TODO: reemplazar con los datos reales del perfil
+const profile: Profile = {
+  name: "Basthian Flores",
+  role: "Ingeniero Informático · Full Stack Developer",
+  location: "Penco, Chile",
+  availability: "Disponible desde Sep 2026",
+  version: "v.2026.3 — último despliegue 14 ago",
+  email: "basthianfmillan@gmail.com",
+  github: "github.com/Basthian-Developer",
+  linkedin: "linkedin.com/in/basthian-f-1b895b2a3",
+  cvUrl: "/documentos/basthian_flores_CV.pdf",
+};
+
+interface SkillGroup {
+  category: string;
+  code: string; // identificador tipo mono, p.ej. "LANG"
+  items: { name: string; core?: boolean }[];
+}
+
+// TODO: reemplazar con las tecnologías reales, agrupadas por dominio
+const skillGroups: SkillGroup[] = [
+  {
+    category: "Lenguajes",
+    code: "LANG",
+    items: [
+      { name: "TypeScript"},
+      { name: "Python", core: true },
+      { name: "SQL"},
+    ],
+  },
+  {
+    category: "Frontend",
+    code: "FE",
+    items: [
+      { name: "React", core: true },
+      { name: "Next.js", core: true },
+      { name: "Tailwind CSS", core: true },
+      { name: "Vite" },
+      { name: "CSS moderno" },
+    ],
+  },
+  {
+    category: "Backend",
+    code: "BE",
+    items: [
+      { name: "Node.js", core: true },
+      { name: "GraphQL" },
+    ],
+  },
+  {
+    category: "Datos",
+    code: "DATA",
+    items: [
+      { name: "PostgreSQL"},
+      { name: "Redis", core: true },
+      { name: "MariaDB", core: true },
+      { name: "SQL Server" },
+    ],
+  },
+  {
+    category: "Infra & Cloud",
+    code: "OPS",
+    items: [
+      { name: "Docker", core: true },
+      { name: "GitHub Actions" },
+    ],
+  },
+];
+
+interface Project {
+  id: string;
+  title: string;
+  kicker: string; // tipo de proyecto / categoría corta
+  description: string;
+  problem: string;
+  technologies: string[];
+  year: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  size: "feature" | "b" | "c" | "d" | "e";
+  pattern: number; // variante visual del placeholder (1-5)
+}
+
+// TODO: reemplazar con proyectos reales. Mantén la estructura para no romper el layout.
+const projects: Project[] = [
+  {
+    id: "01",
+    title: "Sistema De Gestión de Equipos TIC",
+    kicker: "Sistema distribuido",
+    description:
+      "Solución web que permite gestionar la información tecnica de los dispositivos (PC, Impresoras) y llevar una trazabilidad de los mismos.",
+    problem:
+      "El equipo de TI del Cesfam de Penco solicito implementar una mejora respecto a la manera en la que gestionaban la información de sus equipos.",
+    technologies: ["Vue", "Node.js", "MariaDB", "Redis", "Docker"],
+    year: "2025",
+    liveUrl: "https://ledger-demo.alexnavarro.dev",
+    githubUrl: "https://github.com/Basthian-Developer/Proyecto-SIGETIC",
+    size: "feature",
+    pattern: 1,
+  },
+];
+
+interface ExperienceItem {
+  year: string;
+  role: string;
+  org: string;
+  description: string[];
+}
+
+// TODO: reemplazar con experiencia real
+const experience: ExperienceItem[] = [
+  {
+    year: "2025",
+    role: "Estudiante en practica TIC",
+    org: "Hospital Lirquén · Presencial",
+    description: [
+      "· Trabaje modificando paginas webs existentes y implementado nuevas funcionalidades conforme a las necesidades del equipo.",
+      "· Aprendi a trabajar utilizando GIT para el control de versiones.",
+    ]
+  },
+];
+
+interface CredentialItem {
+  label: string;
+  title: string;
+  meta: string;
+}
+
+// TODO: reemplazar con formación y certificaciones reales
+const credentials: CredentialItem[] = [
+  {
+    label: "Formación",
+    title: "Ingeniería en Ejecución Informática",
+    meta: "Instituto Profesional Santo Tomás — 2022 / 2026",
+  },
+];
+
+const navLinks = [
+  { label: "Sobre mí", href: "#about" },
+  { label: "Habilidades", href: "#skills" },
+  { label: "Proyectos", href: "#projects" },
+  { label: "Contacto", href: "#contact" },
+];
+
+/* =============================================================================
+   COMPONENTES DE UI
+   ============================================================================= */
+
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
+}
+
+function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const ref = useReveal<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`reveal ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header className={`nav ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
+      <div className="wrap nav__row">
+        <a href="#top" className="nav__mark">
+          {profile.name} <span className="dot">·dev</span>
+        </a>
+
+        <nav className="nav__links" aria-label="Navegación principal">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href}>
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="nav__ext">
+          <a href={`https://${profile.github}`} target="_blank" rel="noreferrer">GitHub</a>
+          <a href={`https://${profile.linkedin}`} target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href={profile.cvUrl} className="text-link" target="_blank" rel="noreferrer">Ver CV</a>
+        </div>
+
+        <button
+          className={`nav__toggle ${open ? "is-open" : ""}`}
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span /><span /><span />
+        </button>
+      </div>
+
+      {open && (
+        <div className="wrap nav__mobile">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              {l.label}
+            </a>
+          ))}
+          <div className="nav__ext">
+            <a href={`https://${profile.github}`} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={`https://${profile.linkedin}`} target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href={profile.cvUrl} target="_blank" rel="noreferrer">Ver CV</a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="hero" id="top">
+      <div className="wrap">
+        <div className="hero__top">
+          <span className="hero__status">
+            <span className="pulse" aria-hidden="true" />
+            {profile.availability}
+          </span>
+          <span className="hero__meta mono">{profile.version}</span>
+        </div>
+
+        <h1 className="hero__title">
+          Construyo software <em>que funciona</em> en producción, no solo en la demo.
+        </h1>
+
+        <div className="hero__bottom">
+          <div>
+            <p className="hero__desc">
+              Soy {profile.name}, {profile.role.toLowerCase()}. Diseño y construyo soluciones web robustas y bien diseñadas, con atención a la arquitectura, el rendimiento y la experiencia del usuario.
+            </p>
+            <div className="hero__cta">
+              <a href="#projects" className="btn btn--primary">Ver proyectos →</a>
+              <a href="#contact" className="btn">Hablemos</a>
+            </div>
+          </div>
+
+          <div className="hero__stats">
+            <div className="hero__stat">
+              <b>{profile.location.split(",")[0]}</b>
+              <span>Ubicación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section className="section" id="about">
+      <div className="wrap">
+
+        <div className="grid grid-cols-1 min-[861px]:grid-cols-[1.1fr_0.9fr] gap-8">
+          <Reveal className="min-[861px]:col-start-1">
+            <span className="eyebrow">
+              <span className="folio">§ 01</span> Sobre mí
+            </span>
+          </Reveal>
+
+          <Reveal className="min-[861px]:col-start-1">
+            <div className="about__body">
+              <p>
+                Lo que me motivó a entrar al mundo de la programación fue la posibilidad de
+                desarrollar distintos tipos de software y convertir necesidades reales en
+                soluciones útiles para las empresas. Mi objetivo es seguir creciendo hasta
+                convertirme en un profesional capaz de aportar valor y ser un elemento
+                indispensable dentro de un equipo.
+              </p>
+
+              <p className="about__quote">
+                "Pensar en todas las posibilidades para evitar todo error posible."
+              </p>
+
+              <p>
+                Estoy comenzando mi camino profesional en el desarrollo de software, pero
+                tengo claro que los errores forman parte del aprendizaje. Me caracterizo
+                por la persistencia y por seguir aprendiendo a partir de mis fallos. Valoro
+                especialmente la simplicidad, el trabajo en equipo y la calidad en cada
+                entrega, buscando siempre mejorar tanto mis conocimientos como la forma en
+                que trabajo.
+              </p>
+
+              <dl className="about__facts">
+                <div className="about__fact">
+                  <dt>Enfoque</dt>
+                  <dd>Full-Stack & DevOps</dd>
+                </div>
+
+                <div className="about__fact">
+                  <dt>Modalidad</dt>
+                  <dd>Presencial · Remoto · Híbrido</dd>
+                </div>
+
+                <div className="about__fact">
+                  <dt>Idiomas</dt>
+                  <dd>Español (nativo) · Inglés (A2)</dd>
+                </div>
+
+                <div className="about__fact">
+                  <dt>Stack principal</dt>
+                  <dd>Python · React · Node.js · Docker · MariaDB</dd>
+                </div>
+              </dl>
+            </div>
+          </Reveal>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Skills() {
+  return (
+    <section className="section section--dim" id="skills">
+      <div className="wrap">
+        <Reveal>
+          <span className="eyebrow"><span className="folio">§ 02</span> Habilidades técnicas</span>
+        </Reveal>
+        <Reveal>
+          <div className="skills__table">
+            {skillGroups.map((group) => (
+              <div className="skills__row" key={group.code}>
+                <div className="skills__cat">
+                  {group.category}
+                  <span>{group.code}</span>
+                </div>
+                <ul className="skills__items">
+                  {group.items.map((item) => (
+                    <li
+                      key={item.name}
+                      className={`skills__item mono ${item.core ? "is-core" : ""}`}
+                    >
+                      {item.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  const isFeature = project.size === "feature";
+  return (
+    <article className={`project project--${project.size}`}>
+      <div className="project__body">
+        <h3 className="project__title">{project.title}</h3>
+        <p className="project__desc">{isFeature ? project.problem : project.description}</p>
+        {isFeature && <p className="project__desc">{project.description}</p>}
+        <div className="project__tags">
+          {project.technologies.map((t) => (
+            <span className="project__tag" key={t}>{t}</span>
+          ))}
+        </div>
+        {isFeature}
+        <div className="project__links">
+          {project.githubUrl && (
+            <a href={project.githubUrl} className="text-link" target="_blank" rel="noreferrer">Ver el proyecto ↗</a>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function Projects() {
+  return (
+    <section className="section" id="projects">
+      <div className="wrap">
+        <div className="section__head">
+          <div>
+            <Reveal>
+              <span className="eyebrow"><span className="folio">§ 03</span> Proyectos seleccionados</span>
+            </Reveal>
+            <Reveal>
+              <h2 className="section-title">Trabajo que impulso<br />mi crecimiento.</h2>
+            </Reveal>
+          </div>
+          <Reveal>
+            <p className="lede">
+              Una selección de proyectos personales o profesionales que muestran mi enfoque en la construcción de software robusto y bien diseñado, con atención a la arquitectura, el rendimiento y la experiencia del usuario.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="projects__grid">
+          {projects.map((p) => (
+            <Reveal key={p.id} className={`project--${p.size}-wrap`}>
+              <ProjectCard project={p} />
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  return (
+    <section className="section section--dim">
+      <div className="wrap">
+        <Reveal>
+          <span className="eyebrow"><span className="folio">§ 04</span> Trayectoria</span>
+        </Reveal>
+        <div className="info__grid">
+          <Reveal>
+            <div className="timeline">
+              {experience.map((e) => (
+                <div className="timeline__item" key={e.role}>
+                  <div className="timeline__year mono">{e.year}</div>
+                  <div>
+                    <div className="timeline__role">{e.role}</div>
+                    <div className="timeline__org mono">{e.org}</div>
+                    <p className="timeline__desc">{e.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="credentials">
+              {credentials.map((c) => (
+                <div className="credential" key={c.title}>
+                  <span className="credential__label mono">{c.label}</span>
+                  <div className="credential__title">{c.title}</div>
+                  <div className="credential__meta mono">{c.meta}</div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section className="section" id="contact">
+      <div className="wrap">
+        <div className="contact">
+          <Reveal>
+            <div>
+              <span className="eyebrow"><span className="folio">§ 05</span> Contacto</span>
+              <h2 className="contact__title">
+                ¿Un proyecto en mente?<br /><em>Hablemos.</em>
+              </h2>
+              <div className="hero__cta" style={{ marginTop: "2rem" }}>
+                <a href={`mailto:${profile.email}`} className="btn btn--primary">Escribir un correo</a>
+                <a href={profile.cvUrl} className="btn" target="_blank" rel="noreferrer">Descargar CV</a>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="contact__list">
+              <div className="contact__row">
+                <span className="k">Email</span>
+                <a className="v" href={`mailto:${profile.email}`}>{profile.email}</a>
+              </div>
+              <div className="contact__row">
+                <span className="k">GitHub</span>
+                <a className="v" href={`https://${profile.github}`} target="_blank" rel="noreferrer">{profile.github}</a>
+              </div>
+              <div className="contact__row">
+                <span className="k">LinkedIn</span>
+                <a className="v" href={`https://${profile.linkedin}`} target="_blank" rel="noreferrer">{profile.linkedin}</a>
+              </div>
+              <div className="contact__row">
+                <span className="k">Ubicación</span>
+                <span className="v">{profile.location}</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="footer">
+      <div className="wrap">
+        <div className="footer__top">
+          <div>
+            <div className="footer__brand">{profile.name}</div>
+            <p className="footer__desc">
+              Ingeniero informático especializado en el desarrollo de soluciones web.
+            </p>
+          </div>
+          <div className="footer__col">
+            <div className="footer__col-title">Navegación</div>
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href}>{l.label}</a>
+            ))}
+          </div>
+          <div className="footer__col">
+            <div className="footer__col-title">Enlaces</div>
+            <a href={`https://${profile.github}`} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={`https://${profile.linkedin}`} target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          </div>
+        </div>
+        <div className="footer__bottom">
+          <span>© {year} {profile.name}. Todos los derechos reservados.</span>
+          <span>{profile.version}</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* =============================================================================
+   APP
+   ============================================================================= */
+
+export default function App() {
+  useEffect(() => {
+    const cleanup = initInteractions();
+    return cleanup;
+  }, []);
+
+  return (
+    <div className="app">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}

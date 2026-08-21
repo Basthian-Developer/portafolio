@@ -1,93 +1,89 @@
-// ===== Typed role effect =====
+/**
+ * script.ts
+ * -----------------------------------------------------------------------
+ * Interactividad ligera que no depende del ciclo de vida de React:
+ *  1) Compensa el offset del navbar fijo al hacer scroll a un ancla.
+ *  2) Inserta un indicador de progreso de lectura en el navbar (una regla
+ *     roja de 2px que crece con el scroll), coherente con la identidad
+ *     "tecnológica" del sitio: es un dato real (progreso), no decoración.
+ *
+ * initInteractions() se llama una vez desde App (ver app.tsx) dentro de un
+ * useEffect y devuelve una función de limpieza.
+ */
 
-const roles: string[] = [
-  'Desarrolladora Full-Stack',
-  'Ingeniera UI',
-  'Solucionadora de problemas',
-  'Amante del gradiente azul',
-]
+const NAV_OFFSET = 72; // alto aproximado del navbar fijo, en px
 
-const typedEl = document.getElementById('typedRole') as HTMLElement
+function setupAnchorOffset(): () => void {
+  const handler = (event: MouseEvent) => {
+    const target = event.target as HTMLElement | null;
+    const anchor = target?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+    if (!anchor) return;
 
-let roleIndex: number = 0
-let charIndex: number = 0
-let deleting: boolean = false
+    const id = anchor.getAttribute("href");
+    if (!id || id === "#") return;
 
-function typeLoop(): void {
-  const current: string = roles[roleIndex]
+    const el = document.querySelector(id);
+    if (!el) return;
 
-  if (!deleting) {
-    charIndex++
-    typedEl.textContent = current.slice(0, charIndex)
+    event.preventDefault();
+    const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
 
-    if (charIndex === current.length) {
-      deleting = true
-      setTimeout(typeLoop, 1600)
-      return
-    }
-  } else {
-    charIndex--
-    typedEl.textContent = current.slice(0, charIndex)
+    // Mantiene la navegación accesible por teclado: mueve el foco al destino.
+    (el as HTMLElement).setAttribute("tabindex", "-1");
+    (el as HTMLElement).focus({ preventScroll: true });
+  };
 
-    if (charIndex === 0) {
-      deleting = false
-      roleIndex = (roleIndex + 1) % roles.length
-    }
-  }
-
-  setTimeout(typeLoop, deleting ? 35 : 65)
+  document.addEventListener("click", handler);
+  return () => document.removeEventListener("click", handler);
 }
 
-setTimeout(typeLoop, 900)
+function setupScrollProgress(): () => void {
+  const nav = document.querySelector(".nav");
+  if (!nav) return () => {};
 
-// ===== Mobile nav toggle =====
-
-const navToggle = document.getElementById('navToggle') as HTMLButtonElement
-const navLinks = document.getElementById('navLinks') as HTMLUListElement
-
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open')
-})
-
-navLinks.querySelectorAll('a').forEach((link: HTMLAnchorElement) => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open')
-  })
-})
-
-// ===== Scroll reveal =====
-
-const revealEls: NodeListOf<Element> =
-  document.querySelectorAll('.reveal')
-
-const observer = new IntersectionObserver(
-  (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible')
-        observer.unobserve(entry.target)
-      }
-    })
-  },
-  {
-    threshold: 0.15,
+  let bar = nav.querySelector<HTMLDivElement>(".nav__progress");
+  if (!bar) {
+    bar = document.createElement("div");
+    bar.className = "nav__progress";
+    bar.setAttribute("aria-hidden", "true");
+    nav.appendChild(bar);
   }
-)
 
-revealEls.forEach((element: Element) => {
-  observer.observe(element)
-})
+  const update = () => {
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - doc.clientHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    bar!.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  };
 
-// ===== Contact form =====
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
 
-const form = document.getElementById('contactForm') as HTMLFormElement
-const status = document.getElementById('formStatus') as HTMLElement
+  return () => {
+    window.removeEventListener("scroll", update);
+    window.removeEventListener("resize", update);
+  };
+}
 
-form.addEventListener('submit', (event: SubmitEvent) => {
-  event.preventDefault()
+function setupEscapeToCloseMobileNav(): () => void {
+  const handler = (event: KeyboardEvent) => {
+    if (event.key !== "Escape") return;
+    const nav = document.querySelector(".nav.is-open");
+    const toggle = document.querySelector<HTMLButtonElement>(".nav__toggle");
+    if (nav && toggle) toggle.click();
+  };
+  document.addEventListener("keydown", handler);
+  return () => document.removeEventListener("keydown", handler);
+}
 
-  status.textContent =
-    'Este es un prototipo — el formulario no envía datos reales. ¡Gracias por probarlo!'
+export function initInteractions(): () => void {
+  const cleanups = [
+    setupAnchorOffset(),
+    setupScrollProgress(),
+    setupEscapeToCloseMobileNav(),
+  ];
 
-  form.reset()
-})
+  return () => cleanups.forEach((fn) => fn());
+}
