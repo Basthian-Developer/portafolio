@@ -28,7 +28,7 @@ const profile: Profile = {
   name: "Basthian Flores",
   role: "Ingeniero Informático · Full Stack Developer",
   location: "Penco, Chile",
-  availability: "Disponible desde Sep 2026",
+  availability: "Disponible desde Agosto 2026",
   version: "v.2026.3 — último despliegue 14 ago",
   email: "basthianfmillan@gmail.com",
   github: "github.com/Basthian-Developer",
