@@ -48,9 +48,9 @@ const skillGroups: SkillGroup[] = [
     category: "Lenguajes",
     code: "LANG",
     items: [
-      { name: "TypeScript"},
+      { name: "TypeScript" },
       { name: "Python", core: true },
-      { name: "SQL"},
+      { name: "SQL" },
     ],
   },
   {
@@ -76,7 +76,7 @@ const skillGroups: SkillGroup[] = [
     category: "Datos",
     code: "DATA",
     items: [
-      { name: "PostgreSQL"},
+      { name: "PostgreSQL" },
       { name: "Redis", core: true },
       { name: "MariaDB", core: true },
       { name: "SQL Server" },
@@ -400,22 +400,40 @@ function Skills() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const isFeature = project.size === "feature";
   return (
-    <article className={`project project--${project.size}`}>
-      <div className="project__body">
-        <h3 className="project__title">{project.title}</h3>
-        <p className="project__desc">{isFeature ? project.problem : project.description}</p>
-        {isFeature && <p className="project__desc">{project.description}</p>}
-        <div className="project__tags">
-          {project.technologies.map((t) => (
-            <span className="project__tag" key={t}>{t}</span>
+    <article className="flex h-full flex-col border border-black/15 bg-[#FBF9F3] transition-colors duration-300 hover:border-[#1B1815]">
+      <div className="flex flex-1 flex-col gap-4 p-6">
+        <div>
+          <h3 className="font-serif text-[clamp(1.5rem,2.4vw,2.1rem)] font-medium leading-[1.08]">
+            {project.title}
+          </h3>
+
+          <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-[#58514A]">
+            {project.description}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((technology) => (
+            <span
+              key={technology}
+              className="border border-black/20 px-2 py-1 font-mono text-[0.68rem] uppercase tracking-[0.06em] text-[#58514A]"
+            >
+              {technology}
+            </span>
           ))}
         </div>
-        {isFeature}
-        <div className="project__links">
+
+        <div className="mt-auto pt-2">
           {project.githubUrl && (
-            <a href={project.githubUrl} className="text-link" target="_blank" rel="noreferrer">Ver el proyecto ↗</a>
+            <a
+              href={project.githubUrl}
+              className="relative inline-block pb-[3px] font-mono text-xs uppercase tracking-[0.08em] text-[#1B1815] transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-black/25 after:transition-colors hover:text-[#B4232C] hover:after:bg-[#B4232C]"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver el proyecto ↗
+            </a>
           )}
         </div>
       </div>
@@ -425,28 +443,42 @@ function ProjectCard({ project }: { project: Project }) {
 
 function Projects() {
   return (
-    <section className="section" id="projects">
-      <div className="wrap">
-        <div className="section__head">
-          <div>
+    <section className="border-b border-black/15 py-28">
+      <div className="mx-auto max-w-[1320px] px-8 max-md:px-6">
+        <div className="mb-20 flex items-end justify-between gap-6 max-md:flex-col max-md:items-start">
+          <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:gap-16">
+            <div className="md:flex-1">
+              <Reveal>
+                <span className="mb-6 flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-[#58514A]">
+                  <span className="h-0.5 w-[22px] shrink-0 bg-[#B4232C]" />
+                  <span className="font-semibold text-[#B4232C]">§ 03</span>
+                  Proyectos seleccionados
+                </span>
+              </Reveal>
+
+              <Reveal>
+                <h2 className="font-serif text-[clamp(2.1rem,4.6vw,3.4rem)] font-medium leading-[1.06] tracking-[-0.01em]">
+                  Trabajo que impulso
+                  <br />
+                  mi crecimiento.
+                </h2>
+              </Reveal>
+            </div>
+
             <Reveal>
-              <span className="eyebrow"><span className="folio">§ 03</span> Proyectos seleccionados</span>
-            </Reveal>
-            <Reveal>
-              <h2 className="section-title">Trabajo que impulso<br />mi crecimiento.</h2>
+              <p className="max-w-[46ch] text-[1.1875rem] leading-[1.6] text-[#58514A] md:flex-1">
+                Una selección de proyectos personales o profesionales que muestran mi
+                enfoque en la construcción de software robusto y bien diseñado, con
+                atención a la arquitectura, el rendimiento y la experiencia del usuario.
+              </p>
             </Reveal>
           </div>
-          <Reveal>
-            <p className="lede">
-              Una selección de proyectos personales o profesionales que muestran mi enfoque en la construcción de software robusto y bien diseñado, con atención a la arquitectura, el rendimiento y la experiencia del usuario.
-            </p>
-          </Reveal>
         </div>
 
-        <div className="projects__grid">
-          {projects.map((p) => (
-            <Reveal key={p.id} className={`project--${p.size}-wrap`}>
-              <ProjectCard project={p} />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <Reveal key={project.id} className="h-full">
+              <ProjectCard project={project} />
             </Reveal>
           ))}
         </div>
