@@ -1,0 +1,48 @@
+import { useEffect, useState } from "react";
+import type { Perfil } from "@/dominio/entidades/Perfil";
+import { obtenerPerfil } from "@/configuracion/PerfilDependencies";
+
+export function Hero() {
+    const [profile, setProfile] = useState<Perfil>();
+
+    useEffect(() => {
+        obtenerPerfil.ejecutar().then(setProfile);
+    }, []);
+
+    return (
+        <section className="hero" id="top">
+            <div className="wrap">
+                <div className="hero__top">
+                    <span className="hero__status">
+                        <span className="pulse" aria-hidden="true" />
+                        {profile?.availability}
+                    </span>
+                    <span className="hero__meta mono">{profile?.version}</span>
+                </div>
+
+                <h1 className="hero__title">
+                    Construyo software <em>que funciona</em> en producción, no solo en la demo.
+                </h1>
+
+                <div className="hero__bottom">
+                    <div>
+                        <p className="hero__desc">
+                            Soy {profile?.name}, {profile?.role.toLowerCase()}. Diseño y construyo soluciones web robustas y bien diseñadas, con atención a la arquitectura, el rendimiento y la experiencia del usuario.
+                        </p>
+                        <div className="hero__cta">
+                            <a href="#projects" className="btn btn--primary">Ver proyectos →</a>
+                            <a href="#contact" className="btn">Hablemos</a>
+                        </div>
+                    </div>
+
+                    <div className="hero__stats">
+                        <div className="hero__stat">
+                            <b>{profile?.location.split(",")[0]}</b>
+                            <span>Ubicación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}

@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "category": "Lenguajes",
+        "code": "LANG",
+        "items": [
+            {
+                "name": "TypeScript"
+            },
+            {
+                "name": "Python",
+                "core": true
+            },
+            {
+                "name": "SQL"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "category": "Frontend",
+        "code": "FE",
+        "items": [
+            {
+                "name": "React",
+                "core": true
+            },
+            {
+                "name": "Next.js",
+                "core": true
+            },
+            {
+                "name": "Tailwind CSS",
+                "core": true
+            },
+            {
+                "name": "Vite"
+            },
+            {
+                "name": "CSS moderno"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "category": "Backend",
+        "code": "BE",
+        "items": [
+            {
+                "name": "Node.js",
+                "core": true
+            },
+            {
+                "name": "GraphQL"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "category": "Datos",
+        "code": "DATA",
+        "items": [
+            {
+                "name": "PostgreSQL"
+            },
+            {
+                "name": "Redis",
+                "core": true
+            },
+            {
+                "name": "MariaDB",
+                "core": true
+            },
+            {
+                "name": "SQL Server"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "category": "Infra & Cloud",
+        "code": "OPS",
+        "items": [
+            {
+                "name": "Docker",
+                "core": true
+            },
+            {
+                "name": "GitHub Actions"
+            }
+        ]
+    }
+]
