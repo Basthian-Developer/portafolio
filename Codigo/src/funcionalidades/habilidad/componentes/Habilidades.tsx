@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
 import { Reveal } from "@/componentes/Motion";
-import type { Habilidad } from "@/funcionalidades/habilidad/types";
-import { obtenerHabilidades } from "@/funcionalidades/habilidad/servicios/HabilidadServices";
+import { useHabilidades } from "@/funcionalidades/habilidad/hooks/useHabilidades"
 
 export function Habilidades() {
-    const [habilidades, setHabilidades] = useState<Habilidad[]>([]);
-
-    useEffect(() => {
-        setHabilidades(obtenerHabilidades());
-    }, []);
+    const { habilidades, loading } = useHabilidades()
 
     return (
         <section className="section section--dim" id="skills">
@@ -21,10 +15,13 @@ export function Habilidades() {
 
                 <Reveal>
                     <div className="border-t border-[var(--color-ink)]">
-                        {habilidades.map((group) => (
-                            <div
-                                key={group.code}
-                                className="
+                        {loading ? (
+                            <p>...Cargando</p>
+                        ) :
+                            (habilidades.map((group) => (
+                                <div
+                                    key={group.codigo}
+                                    className="
                                     grid grid-cols-1
                                     gap-2
                                     border-b border-[var(--color-line)]
@@ -33,19 +30,19 @@ export function Habilidades() {
                                     min-[721px]:grid-cols-[220px_1fr_90px]
                                     min-[721px]:gap-6
                                 "
-                            >
-                                <div
-                                    className="
+                                >
+                                    <div
+                                        className="
                                         font-serif
                                         text-[var(--fs-h4)]
                                         italic
                                         text-[var(--color-ink)]
                                     "
-                                >
-                                    {group.category}
+                                    >
+                                        {group.categoria}
 
-                                    <span
-                                        className="
+                                        <span
+                                            className="
                                             mt-[2px]
                                             block
                                             font-mono
@@ -54,23 +51,23 @@ export function Habilidades() {
                                             tracking-[0.08em]
                                             text-[var(--color-red)]
                                         "
-                                    >
-                                        {group.code}
-                                    </span>
-                                </div>
+                                        >
+                                            {group.codigo}
+                                        </span>
+                                    </div>
 
-                                <ul
-                                    className="
+                                    <ul
+                                        className="
                                         flex
                                         flex-wrap
                                         gap-x-5
                                         gap-y-3
                                     "
-                                >
-                                    {group.items.map((item) => (
-                                        <li
-                                            key={item.name}
-                                            className={`
+                                    >
+                                        {group.items.map((item) => (
+                                            <li
+                                                key={item.name}
+                                                className={`
                                                 relative
                                                 pl-4
                                                 font-mono
@@ -84,27 +81,21 @@ export function Habilidades() {
                                                 before:-translate-y-1/2
                                                 before:bg-[var(--color-line-strong)]
                                                 ${item.core
-                                                    ? `
+                                                        ? `
                                                         font-medium
                                                         text-[var(--color-ink)]
                                                         before:bg-[var(--color-red)]
                                                     `
-                                                    : ""
-                                                }
+                                                        : ""
+                                                    }
                                             `}
-                                        >
-                                            {item.name}
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                {/* Nivel, si tu Habilidad tiene level:
-                                <div className="justify-self-start min-[721px]:justify-self-end ...">
-                                    ...
+                                            >
+                                                {item.name}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                                */}
-                            </div>
-                        ))}
+                            )))}
                     </div>
                 </Reveal>
             </div>

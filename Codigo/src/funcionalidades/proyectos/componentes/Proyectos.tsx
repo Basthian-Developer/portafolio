@@ -1,15 +1,13 @@
-import { useEffect, useState } from "react";
-import type { Proyecto } from "@/funcionalidades/proyectos/types";
-import { obtenerProyectos } from "@/funcionalidades/proyectos/servicios/ProyectoServices";
 import { ProyectoCard } from "./ProyectoCard";
 import { Reveal } from "@/componentes/Motion";
+import { useProyectos } from '@/funcionalidades/proyectos/hooks/useProyectos'
 
 export function Proyectos() {
-  const [projects, setProjects] = useState<Proyecto[]>([]);
+  const { proyectos, loading } = useProyectos()
 
-  useEffect(() => {
-    setProjects(obtenerProyectos());
-  }, []);
+  if (loading) {
+    return <p className="text-black text-md">...Cargando</p>
+  }
 
   return (
     <section
@@ -48,11 +46,14 @@ export function Proyectos() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <Reveal key={project.id} className="h-full">
-              <ProyectoCard project={project} />
-            </Reveal>
-          ))}
+          {loading ? (
+            <p>...Cargando</p>
+          ) :
+            (proyectos.map((project) => (
+              <Reveal key={project.id} className="h-full">
+                <ProyectoCard project={project} />
+              </Reveal>
+            )))}
         </div>
       </div>
     </section>

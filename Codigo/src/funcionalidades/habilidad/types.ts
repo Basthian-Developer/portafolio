@@ -1,6 +1,6 @@
 export interface Habilidad {
     id: number;
-    category: string;
-    code: string;
+    categoria: string;
+    codigo: string;
     items: { name: string; core?: boolean }[];
 }
