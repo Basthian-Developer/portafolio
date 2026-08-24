@@ -1,5 +1,5 @@
 import "./App.css";
-import { Home } from "./presentacion/paginas/Home";
+import { Home } from "@/paginas/Home";
 
 /* =============================================================================
    APP
