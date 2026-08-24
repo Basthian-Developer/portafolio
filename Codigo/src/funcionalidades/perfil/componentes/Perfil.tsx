@@ -1,12 +1,28 @@
 import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
+import { useMemo } from "react";
 
 export function Perfil() {
-    const {perfiles, loading} = usePerfil()
-    const perfil = perfiles[0]
-
-    if(loading){
-        return <p>...Cargando</p>
+    const { perfiles, loading } = usePerfil()
+    const perfilDefault = {
+        nombre: "...Cargando",
+        rol: "...Cargando",
+        especialidad: "...Cargando",
+        ciudad: "...Cargando",
+        pais: "...Cargando",
+        disponibilidad: "...Cargando",
+        email: "...Cargando",
+        github: "...Cargando",
+        linkedin: "...Cargando",
+        cvUrl: "...Cargando"
     }
+
+    const perfil = useMemo(() => {
+        if (loading) {
+            return perfilDefault
+        }
+
+        return perfiles[0] ?? perfilDefault
+    }, [loading, perfiles])
 
     return (
         <section className="hero" id="top">

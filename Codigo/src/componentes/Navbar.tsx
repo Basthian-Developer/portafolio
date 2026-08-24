@@ -1,10 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { navLinks } from "@/data/NavLinks";
 import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
 
 export function Navbar() {
   const { perfiles, loading } = usePerfil();
-  const perfil = perfiles[0]
+  let perfilDefault = {
+    nombre: "...Cargando",
+    rol: "...Cargando",
+    especialidad: "...Cargando",
+    ciudad: "...Cargando",
+    pais: "...Cargando",
+    disponibilidad: "...Cargando",
+    email: "...Cargando",
+    github: "...Cargando",
+    linkedin: "...Cargando",
+    cvUrl: "...Cargando"
+  }
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [open, setOpen] = useState(false);
@@ -31,12 +42,6 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape" && open) setOpen(false);
     };
@@ -44,9 +49,13 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", onEscape);
   }, []);
 
-  if (loading) {
-    return <p>...Cargando</p>
-  }
+  const perfil = useMemo(() => {
+    if(loading){
+      return perfilDefault
+    }
+
+    return perfiles[0] ?? perfilDefault
+  }, [loading, perfiles])
 
   return (
     <header className={`nav relative ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
