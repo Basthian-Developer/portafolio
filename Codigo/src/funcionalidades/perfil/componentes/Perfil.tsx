@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Perfil } from "@/dominio/entidades/Perfil";
+import type { Perfil } from "@/funcionalidades/perfil/types";
 import { obtenerPerfil } from "@/funcionalidades/perfil/servicios/PerfilServices";
 
 export function Perfil() {

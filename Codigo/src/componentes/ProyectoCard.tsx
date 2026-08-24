@@ -1,4 +1,4 @@
-import type { Proyecto } from "@/dominio/entidades/Proyecto";
+import type { Proyecto } from "@/funcionalidades/proyectos/types";
 
 export function ProjectCard({ project }: { project: Proyecto }) {
   return (
