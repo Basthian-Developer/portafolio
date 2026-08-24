@@ -9,7 +9,7 @@ export class HabilidadSupaRepo implements HabilidadRepo {
         .select("*")
 
         if(error){
-            throw new Error("Error al consultar habilidades: ", error)
+            throw new Error(error.message)
         }
 
         return data

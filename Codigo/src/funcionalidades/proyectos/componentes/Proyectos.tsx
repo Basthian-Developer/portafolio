@@ -5,10 +5,6 @@ import { useProyectos } from '@/funcionalidades/proyectos/hooks/useProyectos'
 export function Proyectos() {
   const { proyectos, loading } = useProyectos()
 
-  if (loading) {
-    return <p className="text-black text-md">...Cargando</p>
-  }
-
   return (
     <section
       id="projects"

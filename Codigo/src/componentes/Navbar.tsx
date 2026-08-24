@@ -1,15 +1,33 @@
 import { useEffect, useState } from "react";
-import type { Perfil } from "@/funcionalidades/perfil/types";
-import { obtenerPerfil } from "@/funcionalidades/perfil/servicios/PerfilServices";
 import { navLinks } from "@/data/NavLinks";
+import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
 
 export function Navbar() {
-  const [perfil, setPerfil] = useState<Perfil>();
+  const { perfiles, loading } = usePerfil();
+  const perfil = perfiles[0]
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    setPerfil(obtenerPerfil())
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress = documentHeight > 0
+        ? (scrollTop / documentHeight) * 100
+        : 0;
+
+      setScrollProgress(progress);
+
+      setScrolled(scrollTop > 12);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -26,11 +44,15 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", onEscape);
   }, []);
 
+  if (loading) {
+    return <p>...Cargando</p>
+  }
+
   return (
-    <header className={`nav ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
+    <header className={`nav relative ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
       <div className="wrap nav__row">
         <a href="#top" className="nav__mark">
-          {perfil?.name} <span className="dot">·dev</span>
+          {perfil?.nombre} <span className="dot">·dev</span>
         </a>
 
         <nav className="nav__links" aria-label="Navegación principal">
@@ -71,6 +93,10 @@ export function Navbar() {
           </div>
         </div>
       )}
+      <div
+        className="absolute bottom-0 left-0 z-[100] h-0.5 bg-red-700"
+        style={{ width: `${scrollProgress}%` }}
+      />
     </header>
   );
 }

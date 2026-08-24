@@ -1,7 +1,7 @@
 export interface Trayectoria {
     id: number;
     year: string;
-    role: string;
+    rol: string;
     org: string;
-    description: string[];
+    descripcion: string[];
 }

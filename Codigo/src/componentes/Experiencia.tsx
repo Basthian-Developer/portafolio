@@ -15,12 +15,24 @@ export function Experiencia() {
                     </span>
                 </Reveal>
 
-                <div className="mt-8 grid grid-cols-1 gap-8 min-[861px]:grid-cols-[1.3fr_1fr]">
+                <div className="py-3 grid grid-cols-1 gap-8 min-[861px]:grid-cols-[1.3fr_1fr]">
                     <Reveal>
+                        <div className="py-4">
+                            <h2 className="mb-5 border-b border-[var(--color-border)] pb-3 font-mono text-xs uppercase tracking-[0.08em] text-[var(--color-red)]">
+                                Experiencia
+                            </h2>
+                        </div>
+
                         <Trayectoria />
                     </Reveal>
 
                     <Reveal>
+                        <div className="py-4">
+                            <h2 className="mb-5 border-b border-[var(--color-border)] pb-3 font-mono text-xs uppercase tracking-[0.08em] text-[var(--color-red)]">
+                                Formación
+                            </h2>
+                        </div>
+
                         <Formacion />
                     </Reveal>
                 </div>

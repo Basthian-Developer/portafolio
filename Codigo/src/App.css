@@ -506,13 +506,7 @@ button {
   font-weight: 400;
 }
 
-.hero__bottom {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: var(--sp-8);
-  margin-top: var(--sp-7);
-  align-items: end;
-}
+
 
 .hero__desc {
   font-size: var(--fs-lead);
@@ -525,38 +519,6 @@ button {
   gap: var(--sp-4);
   margin-top: var(--sp-6);
   flex-wrap: wrap;
-}
-
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: var(--border-w) solid var(--color-line);
-}
-
-.hero__stat {
-  padding: var(--sp-4) var(--sp-4) 0 0;
-  border-left: var(--border-w) solid var(--color-line);
-}
-
-.hero__stat:first-child {
-  border-left: none;
-  padding-left: 0;
-}
-
-.hero__stat b {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 1.9rem;
-  color: var(--color-red);
-  font-weight: 500;
-}
-
-.hero__stat span {
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono-xs);
-  color: var(--color-ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 @media (max-width: 860px) {

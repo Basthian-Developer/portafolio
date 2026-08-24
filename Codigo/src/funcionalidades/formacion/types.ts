@@ -1,6 +1,9 @@
 export interface Formacion {
   id: number;
   label: string;
-  title: string;
-  meta: string;
+  titulo: string;
+  org: string;
+  date_inicio: string;
+  date_termino: string;
+  estado: string;
 }

@@ -1,23 +1,21 @@
-import { useEffect, useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
-import type { Perfil } from "@/funcionalidades/perfil/types";
-import { obtenerPerfil } from "@/funcionalidades/perfil/servicios/PerfilServices";
 import { navLinks } from "@/data/NavLinks";
+import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil"; 
 
 export function Footer() {
-  const year = new Date().getFullYear();
-  const [perfil, setPerfil] = useState<Perfil>();
+  const {perfiles, loading} = usePerfil();
+  const perfil = perfiles[0]
 
-  useEffect(() => {
-    setPerfil(obtenerPerfil())
-  }, []);
+  if(loading){
+    return <p>...Cargando</p>
+  }
 
   return (
     <footer className="footer">
       <div className="wrap">
         <div className="footer__top">
           <div>
-            <div className="footer__brand">{perfil?.name}</div>
+            <div className="footer__brand">{perfil?.nombre}</div>
             <p className="footer__desc">
               Ingeniero informático especializado en el desarrollo de soluciones web.
             </p>
@@ -43,10 +41,6 @@ export function Footer() {
               {perfil?.email}
             </a>
           </div>
-        </div>
-        <div className="footer__bottom">
-          <span>© {year} {perfil?.name}. Todos los derechos reservados.</span>
-          <span>{perfil?.version}</span>
         </div>
       </div>
     </footer>

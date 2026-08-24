@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import type { Perfil } from "@/funcionalidades/perfil/types";
-import { obtenerPerfil } from "@/funcionalidades/perfil/servicios/PerfilServices";
 import { Reveal } from "./Motion";
+import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
 
 export function Contacto() {
-  const [perfil, setPerfil] = useState<Perfil>();
+  const {perfiles, loading} = usePerfil();
+  const perfil = perfiles[0]
 
-  useEffect(() => {
-    setPerfil(obtenerPerfil())
-  }, []);
+  if(loading){
+    return <p>...Cargando</p>
+  }
 
   return (
     <section
@@ -45,7 +44,7 @@ export function Contacto() {
               </div>
               <div className="contact__row">
                 <span className="k">Ubicación</span>
-                <span className="v">{perfil?.location}</span>
+                <span className="v">{perfil?.ciudad}, {perfil?.pais}</span>
               </div>
             </div>
           </Reveal>
