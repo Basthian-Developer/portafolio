@@ -1,5 +1,4 @@
 import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
-import { useMemo } from "react";
 
 export function Perfil() {
     const { perfiles, loading } = usePerfil()
@@ -16,13 +15,7 @@ export function Perfil() {
         cvUrl: "...Cargando"
     }
 
-    const perfil = useMemo(() => {
-        if (loading) {
-            return perfilDefault
-        }
-
-        return perfiles[0] ?? perfilDefault
-    }, [loading, perfiles])
+    const perfil = loading ? perfilDefault : perfiles[0] ?? perfilDefault
 
     return (
         <section className="hero" id="top">

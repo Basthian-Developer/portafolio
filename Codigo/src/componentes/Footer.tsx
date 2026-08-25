@@ -4,11 +4,20 @@ import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
 
 export function Footer() {
   const {perfiles, loading} = usePerfil();
-  const perfil = perfiles[0]
-
-  if(loading){
-    return <p>...Cargando</p>
+  const perfilDefault = {
+    nombre: "...Cargando",
+    rol: "...Cargando",
+    especialidad: "...Cargando",
+    ciudad: "...Cargando",
+    pais: "...Cargando",
+    disponibilidad: "...Cargando",
+    email: "...Cargando",
+    github: "...Cargando",
+    linkedin: "...Cargando",
+    cvUrl: "...Cargando"
   }
+
+  const perfil = loading ? perfilDefault : perfiles[0] ?? perfilDefault
 
   return (
     <footer className="footer">

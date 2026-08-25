@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Reveal } from "./Motion";
 import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
 
@@ -17,13 +16,7 @@ export function Contacto() {
     cvUrl: "...Cargando"
   }
   
-  const perfil = useMemo(() => {
-    if(loading){
-      return perfilDefault
-    }
-
-    return perfiles[0] ?? perfilDefault
-  }, [loading, perfiles])
+  const perfil = loading ? perfilDefault : perfiles[0] ?? perfilDefault
 
   return (
     <section

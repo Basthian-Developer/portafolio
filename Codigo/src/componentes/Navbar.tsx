@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks } from "@/data/NavLinks";
 import { usePerfil } from "@/funcionalidades/perfil/hooks/usePerfil";
 
 export function Navbar() {
   const { perfiles, loading } = usePerfil();
-  let perfilDefault = {
+  const perfilDefault = {
     nombre: "...Cargando",
     rol: "...Cargando",
     especialidad: "...Cargando",
@@ -49,13 +49,7 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", onEscape);
   }, []);
 
-  const perfil = useMemo(() => {
-    if(loading){
-      return perfilDefault
-    }
-
-    return perfiles[0] ?? perfilDefault
-  }, [loading, perfiles])
+  const perfil = loading ? perfilDefault : perfiles[0] ?? perfilDefault
 
   return (
     <header className={`nav relative ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
